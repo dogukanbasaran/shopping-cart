@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", serif;
+}
+
+:root{
+    --bgColor: #fdfdfd;
+    --borderColor: rgba(0, 0, 0, 0.2);
+}
+
+html{
+    background: var(--bgColor);
+}
+
+main{
+    height: 100vh;
+}
+
+main .container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#cart-header{
+    border: 1px solid var(--borderColor);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 2%;
+}
+
+#cart-header span{
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+#cart-header button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    padding: 1%;
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#cart-header button:hover{
+    background: #c4652d;
+    color: #fff;
+    transition: 300ms;
+}
+
+#products{
+    height: 100%;
+}
+
+#product-list{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    padding: 2%;
+    row-gap: 10px;
+}
+
+.product{
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+}
+
+/* Supplier */
+
+.product .supplier-box{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+    border-bottom: 1px solid var(--borderColor);
+}
+
+/* Product Details */
+
+.product .product-details{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 200px;
+    padding: 2%;
+}
+
+/* Product Details: Texts */
+
+.product-details .product-img{
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.product-details .product-texts{
+    display: flex;
+    gap: 7.5px;
+    flex-direction: column;
+    height: 150px;
+    width: 100%;
+}
+
+.product-texts .product-name{
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.product-texts .product-description{
+    font-size: 0.80em;
+    font-weight: 300;
+}
+
+.product-texts .hire-purchase-status{
+    font-size: 0.70em;
+    color: #1036b1;
+}
+
+
+
+/* Product Operations */
+
+.product .product-operations{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.product-operations span{
+    font-weight: 600;
+}
+
+.product-purchasing{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.product-purchasing input{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 2%;
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+    outline: none;
+}
+
+.product-operations button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    padding: 1%;
+    border: 1px solid var(--borderColor);
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.product-operations button:hover{
+    background: #c4652d;
+    color: #fff;
+    transition: 300ms;
+}
+
+
+
+
+
