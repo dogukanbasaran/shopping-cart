@@ -2,6 +2,10 @@ import data from "./products.js";
 
 const productList = document.querySelector("#product-list");
 
+let productAmount = document.querySelector("#product-amount");
+productAmount.textContent = data.products.length <= 1 ? `(${data.products.length} product)` : `(${data.products.length} products)`;
+
+let totalPrice = 0;
 
 data.products.forEach((product) => {
 
@@ -67,9 +71,12 @@ data.products.forEach((product) => {
     productPurchasing.classList.add("product-purchasing");
     const amountDecrementBtn = document.createElement("button");
     amountDecrementBtn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    const amountInput = document.createElement("input");
+
+    let amountInput = document.createElement("input");
     amountInput.classList.add("product-amount");
     amountInput.value = 1;
+    amountInput.disabled = true;
+
     const amountIncrementBtn = document.createElement("button");
     amountIncrementBtn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
 
@@ -77,13 +84,12 @@ data.products.forEach((product) => {
     productPurchasing.appendChild(amountInput);
     productPurchasing.appendChild(amountIncrementBtn);
 
-    const productPrice = document.createElement("span");
+    let productPrice = document.createElement("span");
     productPrice.classList.add("product-price");
     productPrice.textContent = `${product.productPrice} TL`;
 
     const productRemoveBtn = document.createElement("button");
     productRemoveBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-
 
     productOperations.appendChild(productPurchasing);
     productOperations.appendChild(productPrice);
@@ -101,5 +107,30 @@ data.products.forEach((product) => {
 
     // Functions
 
+    productRemoveBtn.addEventListener("click", () => {
+        productList.removeChild(products);
+    });
+
+    
+    amountIncrementBtn.addEventListener("click", () => {
+            ++amountInput.value;
+            productPrice.textContent = `${product.productPrice * amountInput.value} TL`;
+    });
+
+
+    amountDecrementBtn.addEventListener("click", () => {
+       if(amountInput.value > 1){
+            --amountInput.value;
+            productPrice.textContent = `${product.productPrice * amountInput.value} TL`;
+       }
+    });
+
+
+    totalPrice = totalPrice + Number(product.productPrice);
 
 });
+
+
+
+const cartSummary = document.querySelector("#cart-summary span");
+cartSummary.textContent = `Total Price: ${totalPrice} TL`;
